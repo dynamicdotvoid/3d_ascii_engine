@@ -42,13 +42,18 @@ struct pixel internal_make_pixel_struct(int x, int y, struct rgb_color color);
 // create and store a pixel with the supplied arguments
 // uses logical coordinate system
 // example of a ~(700 x 500) screen using the logical coordinate system:
+//             250
 //              |
 //              |
 //              |
-//              *
-// 
+// -350---------0-----------350
+//              |
+//              |
+//              |
+//            -250
 //
 // @param x_pos x position of the created pixel
 // @param y_pos y position of the created pixel
+// @param color struct of the desired rgb color
 // @return success
 int create_pixel(int x_pos, int y_pos, struct rgb_color color);

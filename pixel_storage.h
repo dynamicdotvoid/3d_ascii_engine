@@ -20,5 +20,5 @@ void remove_entry(struct pixel_entry removal_entry);
 // draw the screen with the given points
 //
 // @param pointer to the start of the linked list containing drawn pixels
-// @return 0 = succeeded >0 = failed, usually due to a pixel being out of bounds
-//int draw_screen(TODO);
+// @return success
+int draw_screen(struct pixel_entry *head_entry);
