@@ -59,5 +59,5 @@ struct pixel internal_make_pixel_struct(int x_pos, int y_pos, struct rgb_color c
 // @param red_intensity intensity of red
 // @param green_intensity intensity of green
 // @param blue_intensity intensity of blue
-// @return pointer to location of entry in drawn pixels linked list
+// @return pointer to location of entry in drawn pixels linked list, or NULL if coordinates are out of range
 struct pixel_entry *create_pixel(int x_pos, int y_pos, int red_intensity, int green_intensity, int blue_intensity);
