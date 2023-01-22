@@ -2,7 +2,7 @@
 
 // entry struct in the drawn pixels linked list
 struct pixel_entry {
-    extern struct pixel pixel_node;  // the pixel data to be stored
+    struct pixel pixel_node;  // the pixel data to be stored
     struct pixel_entry *next_entry;  // the next entry in the linked list
 }
 
@@ -10,7 +10,7 @@ struct pixel_entry {
 //
 // @param pixel_node pixel data to insert into the linked list
 // @return pointer to entry
-struct pixel_entry *insert_entry(extern struct pixel pixel_node);
+struct pixel_entry *insert_entry(struct pixel pixel_node);
 
 // remove and free an entry from the drawn pixels linked list
 //

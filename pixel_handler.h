@@ -1,3 +1,5 @@
+#include "pixel_storage.h"
+
 // rgb color holder used for pixels
 struct rgb_color {
     int red : 8;    // intensity of red
@@ -22,22 +24,22 @@ struct pixel {
     struct rgb_color color;  // rgb color of the pixel
 }
 
-// make a rgb_collor struct using the given arguments
+// make(and malloc) a rgb_color struct using the given arguments
 //
-// @param red intensity of red
-// @param green intensity of green
-// @param blue intensity of blue
+// @param red_intensity intensity of red
+// @param green_intensity intensity of green
+// @param blue_intensity intensity of blue
 // @return made rgb_color struct
-struct rgb_color make_color_struct(int red, int green, int blue);
+struct rgb_color internal_make_color_struct(int red_intensity, int green_intensity, int blue_intensity);
 
 // make a pixel struct using the given arguments
 // uses screen coordinate system
 //
-// @param x x position of the pixel
-// @param y y position of the pixel
-// @param color struct rgb_color of the pixel color
+// @param x_pos x position of the pixel
+// @param y_pos y position of the pixel
+// @param color_struct struct rgb_color of the pixel color
 // @return made pixel struct
-struct pixel internal_make_pixel_struct(int x, int y, struct rgb_color color);
+struct pixel internal_make_pixel_struct(int x_pos, int y_pos, struct rgb_color color_struct);
 
 // create and store a pixel with the supplied arguments
 // uses logical coordinate system
@@ -54,6 +56,8 @@ struct pixel internal_make_pixel_struct(int x, int y, struct rgb_color color);
 //
 // @param x_pos x position of the created pixel
 // @param y_pos y position of the created pixel
-// @param color struct of the desired rgb color
-// @return success
-int create_pixel(int x_pos, int y_pos, struct rgb_color color);
+// @param red_intensity intensity of red
+// @param green_intensity intensity of green
+// @param blue_intensity intensity of blue
+// @return pointer to location of entry in drawn pixels linked list
+struct pixel_entry *create_pixel(int x_pos, int y_pos, int red_intensity, int green_intensity, int blue_intensity);
