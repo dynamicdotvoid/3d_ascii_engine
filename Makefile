@@ -2,7 +2,8 @@ CC = gcc
 CLAGS = -Wall -Werror
 
 CC = gcc  # C compiler
-CFLAGS = -fPIC -Wall -Werror -Wextra -O2  # C flags
+CFLAGS = -fPIC -Wall -Werror -Wextra -Wno-unused-result -O2  # C flags
+CFLAGS += 
 LDFLAGS = -shared   # linking flags
 RM = rm -f   # rm command
 TARGET_LIB = libengine.so  # engine lib

@@ -20,4 +20,9 @@ struct pixel_entry *insert_entry(struct pixel node);
 // @param removal_entry pointer to entry to remove and free
 void remove_entry(struct pixel_entry *removal_entry);
 
+// return a pointer to the head entry of the linked list
+//
+// @return pointer to the head entry of the linked list
+struct pixel_entry *fetch_head_entry();
+
 #endif  // PIXEL_STORAGE_H

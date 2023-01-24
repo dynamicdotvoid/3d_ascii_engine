@@ -66,3 +66,7 @@ void remove_entry(struct pixel_entry *removal_entry) {
     remove_func_end:
         free(removal_entry);
 }
+
+struct pixel_entry *fetch_head_entry() {
+    return head_entry;
+}
