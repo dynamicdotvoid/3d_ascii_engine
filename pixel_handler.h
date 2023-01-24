@@ -1,3 +1,6 @@
+#ifndef PIXEL_HANDLER_H
+#define PIXEL_HANDLER_H
+
 #include "pixel_storage.h"
 
 // rgb color holder used for pixels
@@ -5,7 +8,7 @@ struct rgb_color {
     int red : 8;    // intensity of red
     int green : 8;  // intensity of green
     int blue : 8;   // intensity of blue
-}
+};
 
 // pixel struct passed into pixel related functions and stored
 // uses a screen coordinate system
@@ -22,7 +25,7 @@ struct pixel {
     unsigned int x;          // x position of the pixel
     unsigned int y;          // y position of the pixel
     struct rgb_color color;  // rgb color of the pixel
-}
+};
 
 // make(and malloc) a rgb_color struct using the given arguments
 //
@@ -61,3 +64,5 @@ struct pixel internal_make_pixel_struct(int x_pos, int y_pos, struct rgb_color c
 // @param blue_intensity intensity of blue
 // @return pointer to location of entry in drawn pixels linked list, or NULL if coordinates are out of range
 struct pixel_entry *create_pixel(int x_pos, int y_pos, int red_intensity, int green_intensity, int blue_intensity);
+
+#endif  // PIXEL_HANDLER_H

@@ -4,7 +4,7 @@
 #include "screen_handler.h"
 
 struct rgb_color internal_make_color_struct(int red_intensity, int green_intensity, int blue_intensity) {
-    struct rgb_color *made_struct = (struct rgb_color *)malloc(sizeof(struct rbg_color));
+    struct rgb_color *made_struct = (struct rgb_color *)malloc(sizeof(struct rgb_color));
 
     made_struct->red = red_intensity;
     made_struct->green = green_intensity;
