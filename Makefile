@@ -1,26 +1,24 @@
+TARGET = prog
+LIBS =
 CC = gcc
-CLAGS = -Wall -Werror
+CFLAGS = -fPIC -Wall -Werror -Wextra -Wno-unused-result -Wno-unused-parameter -O2
 
-CC = gcc  # C compiler
-CFLAGS = -fPIC -Wall -Werror -Wextra -Wno-unused-result -O2  # C flags
-LDFLAGS = -shared   # linking flags
-RM = rm -f   # rm command
-TARGET_LIB = libengine.so  # engine lib
+.PHONY: default all clean
 
-SRCS = main.c pixel_handler.c pixel_storage.c screen_handler.c  # source files
-OBJS = $(SRCS:.c=.o)
+default: $(TARGET)
+all: default
 
-.PHONY: all
-all: ${TARGET_LIB}
+OBJECTS = $(patsubst %.c, %.o, $(wildcard *.c))
+HEADERS = $(wildcard *.h)
 
-$(TARGET_LIB): $(OBJS)
-	$(CC) ${LDFLAGS} -o $@ $^
+%.o: %.c $(HEADERS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(SRCS:.c=.d):%.d:%.c
-	$(CC) $(CFLAGS) -MM $< >$@
+.PRECIOUS: $(TARGET) $(OBJECTS)
 
-include $(SRCS:.c=.d)
+$(TARGET): $(OBJECTS)
+	$(CC) $(OBJECTS) $(CFLAGS)  $(LIBS) -o $@
 
-.PHONY: clean
 clean:
-	-${RM} ${TARGET_LIB} ${OBJS} $(SRCS:.c=.d)
+	-rm -f *.o
+	-rm -f $(TARGET)
