@@ -10,6 +10,6 @@ int main() {
     struct pixel_entry *pixels_head_entry = fetch_head_entry();
     draw_screen(pixels_head_entry);
 
-    system("pause");  // prevent from closing
+    getchar();  // prevent from closing
     return 0;
 }

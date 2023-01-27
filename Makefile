@@ -1,7 +1,7 @@
 TARGET = prog
 LIBS =
 CC = gcc
-CFLAGS = -fPIC -Wall -Werror -Wextra -Wno-unused-result -Wno-unused-parameter -O2
+CFLAGS = -g -fPIC -Wall -Werror -Wextra -Wno-unused-result -Wno-unused-parameter -O2
 
 .PHONY: default all clean
 

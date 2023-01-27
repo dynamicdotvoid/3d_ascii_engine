@@ -11,7 +11,7 @@ void draw_screen(struct pixel_entry *head_draw_entry) {
     unsigned int current_y_position = 0;
     while (current_y_position <= MAX_HEIGHT) {
         // if current coordinates match current entry's coordinates
-        if (current_x_position == head_draw_entry->pixel_node->x && current_y_position == head_draw_entry->pixel_node->y) {
+        if (head_draw_entry != NULL && current_x_position == head_draw_entry->pixel_node->x && current_y_position == head_draw_entry->pixel_node->y) {
             putchar(PIXEL_CHAR);
 
             head_draw_entry = head_draw_entry->next_entry;
